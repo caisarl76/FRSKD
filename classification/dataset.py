@@ -24,10 +24,10 @@ def cifar_loader(batch_size, data_dir, data):
     transform_train = transforms.Compose(
         [transforms.RandomCrop(32, padding=4), transforms.RandomHorizontalFlip(), transforms.ToTensor(), normalize,])
     transform_test = transforms.Compose([transforms.ToTensor(), normalize, ])
-
-    trainset = datasets.CIFAR100(root=os.path.join(data_dir, data), train=True,
+    print(data_dir)
+    trainset = datasets.CIFAR100(root=data_dir, train=True,
                                  download=False, transform=transform_train)
-    testset = datasets.CIFAR100(root=os.path.join(data_dir, data), train=False,
+    testset = datasets.CIFAR100(root=data_dir, train=False,
                                 download=False, transform=transform_test)
 
     train_loader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, pin_memory=True)
