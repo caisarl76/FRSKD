@@ -3,9 +3,10 @@ import random
 import argparse
 import torch.nn as nn
 from time import time
-from classification.dataset import create_loader
-from classification import models, distill_loss
-from classification.utils import *
+from dataset import create_loader
+import models
+import distill_loss
+from utils import *
 
 
 def str2bool(s):
